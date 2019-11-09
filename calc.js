@@ -34,19 +34,24 @@ function fuelair()
     var air = parseFloat($("#air").val());
     var fa = parseFloat($("#fa").val());
     var phi = parseFloat($("#fa").val());
+    var alpha = parseFloat($("#alpha").val());
     
     if (fuel && air && fuel !=0)
     {
         var fa = fuel/air;
-        var phi = fa/0.0661;
+        var phi = fa/0.068;
+        var alpha = 1/(fa*14.7);
         document.getElementById("fa").value=fa.toFixed(6);
         document.getElementById("phi").value=phi.toFixed(6);
+        document.getElementById("alpha").value=alpha.toFixed(6);
     }else if(air && fa && fuel == 0)
     {
         var fuel = fa*air;
         document.getElementById("fuel").value=fuel.toFixed(6);
-        var phi = fa/0.0661;
+        var phi = fa/0.068;
         document.getElementById("phi").value=phi.toFixed(6);
+        var alpha = 1/(fa*14.7);
+        document.getElementById("alpha").value=alpha.toFixed(6);
 
     }
 
